@@ -50,7 +50,7 @@ function setframe(frame, input) {
   frame.style.width = "100%"
   frame.style.height = "900px"
   input.style.marginTop = "-2.5%"
-  input.style.left = "400px"
+  input.style.left = "35%"
   input.style.position = "absolute"
   document.getElementById("reload").style.display = "block"
   document.getElementById("Exit").style.display = "block"
