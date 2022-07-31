@@ -1,0 +1,71 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="shortcut icon" type="image/png"  id="shortcut icon"/>
+  <link rel="stylesheet" href="bookmark.css">
+  <script>
+    function getCookie(cname) {
+      let name = cname + "=";
+      let decodedCookie = decodeURIComponent(document.cookie);
+      let ca = decodedCookie.split(';');
+      for(let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) == ' ') {
+          c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+          return c.substring(name.length, c.length);
+        }
+      }
+      return "";
+    }
+    
+    function checkCookie() {
+      let theme = getCookie("theme")
+      
+      
+       if(theme !== "") {
+         document.getElementById("cryodevtools").style.backgroundColor = theme;
+         document.getElementById("shortcut icon").href = "/" + theme + ".png";
+       }
+      
+      document.getElementById("cryodevtools").style.display = "block"
+    }
+    
+    function cryodevtools() {
+      alert("Copied to your clipboard!")
+      navigator.clipboard.writeText("copy(javascript:(function () {var a = document.createElement('script');a.src = 'https://cryodream.dev/thing/vapor.min.js';document.body.appendChild(a);}()))");
+    }
+  </script>
+  <title>Settings</title>
+</head>
+  
+<body onload="checkCookie()">
+  <div class="dropdown">
+  <button class="dropbtn">≡</button>
+  <div class="dropdown-content">
+    <a href="/bookmark">Bookmarklets</a>
+    <a href="/"">Home</a>
+    <a href="/settings">Settings</a>
+    <a href="/cryos">cryOS</a>
+  </div>
+</div>
+  <div id="container">
+    <h1 style="text-align:center;">Click to copy</h1>
+    <button id="cryodevtools" onclick="cryodevtools()">CryoDevTools</button>
+  </div>
+  <div id="instructions">
+    <h1>How to install a bookmarklet</h1>
+    <p>Step 1: Click the button to copy the bookmarklet</p>
+    <p>Step 2: Add a new bookmark to your browser</p>
+    <p>Step 3: Set the url of the bookmark to the copied code</p>
+  </div>
+  
+  
+  
+</body>
+
+</html>
+
